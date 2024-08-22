@@ -1,14 +1,23 @@
 "use client";
 import { useState } from "react";
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
+import { usePathname } from "next/navigation";
 
-const navbar = () => {
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname(); // Get the current path
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    const getLinkClass = (path: any) => {
+        return pathname === path
+            ? "bg-gray-700 text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            : "text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium";
+    };
+
     return (
         <nav className="bg-gray-200">
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -39,10 +48,10 @@ const navbar = () => {
                         </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
-                                <Link href="/" className="text-gray-800 transition ease-in-out delay-120 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-                                <Link href="/about" className="text-gray-800 transition ease-in-out delay-120 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</Link>
-                                <Link href="/services" className="text-gray-800 transition ease-in-out delay-120 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</Link>
-                                <Link href="/contact" className="text-gray-800 transition ease-in-out delay-120 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
+                                <Link href="/" className={getLinkClass("/")}>Home</Link>
+                                <Link href="/about" className={getLinkClass("/about")}>About</Link>
+                                <Link href="/services" className={getLinkClass("/services")}>Services</Link>
+                                <Link href="/contact" className={getLinkClass("/contact")}>Contact</Link>
                             </div>
                         </div>
                     </div>
@@ -51,10 +60,10 @@ const navbar = () => {
             {isOpen && (
                 <div className="sm:hidden transition ease-in-out delay-120" id="mobile-menu">
                     <div className="px-2 pt-2 pb-3 space-y-1">
-                        <Link href="/" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</Link>
-                        <Link href="/about" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
-                        <Link href="/services" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</Link>
-                        <Link href="/contact" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</Link>
+                        <Link href="/" className={getLinkClass("/") + 'block'}>Home</Link>
+                        <Link href="/about" className={getLinkClass("/about") + 'block'}>About</Link>
+                        <Link href="/services" className={getLinkClass("/services") + 'block'}>Services</Link>
+                        <Link href="/contact" className={getLinkClass("/contact") + 'block'}>Contact</Link>
                     </div>
                 </div>
             )}
@@ -62,4 +71,4 @@ const navbar = () => {
     )
 }
 
-export default navbar
+export default Navbar;
