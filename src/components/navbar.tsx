@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from 'next/link';
 import React from 'react';
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,13 @@ const Navbar = () => {
                     </div>
                     <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex-shrink-0">
-                            <img className="h-8" src="/portfolio.png" alt="Logo" />
+                            <Image
+                                className="h-8"
+                                src="/portfolio.png"
+                                alt="Logo"
+                                width={80}
+                                height={50}
+                            />
                         </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
