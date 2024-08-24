@@ -57,7 +57,7 @@ const Navbar = () => {
                             <div className="flex space-x-4">
                                 <Link href="/" className={getLinkClass("/")}>Home</Link>
                                 <Link href="/about" className={getLinkClass("/about")}>About</Link>
-                                <Link href="/services" className={getLinkClass("/services")}>Services</Link>
+                                <Link href="/projects" className={getLinkClass("/projects")}>Projects</Link>
                                 <Link href="/contact" className={getLinkClass("/contact")}>Contact</Link>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ const Navbar = () => {
                     <div className="px-2 pt-2 pb-3 space-y-1">
                         <Link href="/" className={getLinkClass("/") + 'block'}>Home</Link>
                         <Link href="/about" className={getLinkClass("/about") + 'block'}>About</Link>
-                        <Link href="/services" className={getLinkClass("/services") + 'block'}>Services</Link>
+                        <Link href="/projects" className={getLinkClass("/projects") + 'block'}>Projects</Link>
                         <Link href="/contact" className={getLinkClass("/contact") + 'block'}>Contact</Link>
                     </div>
                 </div>
