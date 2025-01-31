@@ -3,7 +3,6 @@ import { useState } from "react";
 import Link from 'next/link';
 import React from 'react';
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +14,8 @@ const Navbar = () => {
 
     const getLinkClass = (path: any) => {
         return pathname === path
-            ? "bg-gray-700 text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            : "text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium";
+            ? "bg-slate-600 text-white hover:bg-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            : "text-slate-600 hover:bg-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium";
     };
 
     return (
@@ -44,15 +43,6 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex-shrink-0">
-                            <Image
-                                className="h-8"
-                                src="/portfolio.png"
-                                alt="Logo"
-                                width={80}
-                                height={50}
-                            />
-                        </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
                                 <Link href="/" className={getLinkClass("/")}>Home</Link>
